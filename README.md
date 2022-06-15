@@ -12,7 +12,7 @@ To get a local copy of the project, follow these steps:
  git clone https://github.com/Alexr16/OOP-school-library
  ```
  ```
- cd portfolio
+ cd OOP-school-library
  ```
 
 
