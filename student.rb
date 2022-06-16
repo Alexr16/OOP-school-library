@@ -16,6 +16,3 @@ class Student < Person
     classroom.students.push(self) unless classroom.students.include?(self)
   end
 end
-
-# students_1 = Student.new(18, 'Juan', parent_permission: false)
-# p students_1.parent_permission

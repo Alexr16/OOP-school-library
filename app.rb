@@ -61,13 +61,13 @@ class App
 
   def create_rental
     puts 'Select a book from the following list by number'
-    @books.each_with_index  do |book, index|
-        puts "[#{index}] Title: #{book.title}. Author: #{book.author}" 
+    @books.each_with_index do |book, index|
+      puts "[#{index}] Title: #{book.title}. Author: #{book.author}"
     end
     book_number = gets.chomp.to_i
     puts 'Select a student from the following list by number'
-    @people.each_with_index  do |person, index| 
-        puts "[#{index}] [#{person.class}] Name: #{person.name}, ID: #{person.id},  Age: #{person.age}"
+    @people.each_with_index do |person, index|
+      puts "[#{index}] [#{person.class}] Name: #{person.name}, ID: #{person.id},  Age: #{person.age}"
     end
     student_number = gets.chomp.to_i
     print 'Date: '
@@ -81,10 +81,12 @@ class App
     id = gets.chomp
     puts 'Rentals: '
     person = @people.find { |element| element.id == id }
-    if  person != nil
+    if person.nil?
+      puts 'No person found with this ID'
+    else
       puts(person.rentals.map do |rental|
-           "Date: #{rental.date}, Book: #{rental.book.title}, Author: #{rental.book.author}"
-         end)
+             "Date: #{rental.date}, Book: #{rental.book.title}, Author: #{rental.book.author}"
+           end)
     end
   end
 
