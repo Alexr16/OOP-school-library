@@ -76,5 +76,20 @@ class App
     puts 'Rental created successfully!'
   end
 
-  
+  def list_all_rentals_by_id
+    print 'ID of person: '
+    id = gets.chomp
+    puts 'Rentals: '
+    person = @people.find { |element| element.id == id }
+    if  person != nil
+      puts(person.rentals.map do |rental|
+           "Date: #{rental.date}, Book: #{rental.book.title}, Author: #{rental.book.author}"
+         end)
+    end
+  end
+
+  def exit
+    puts 'Thank for using this app!'
+    abort
+  end
 end
