@@ -3,7 +3,7 @@ require_relative 'classroom'
 
 class Student < Person
   def initialize(age, name = 'Unknow', classroom = nil, parent_permission: true)
-    super(age, name, parent_permission)
+    super(age, name, parent_permission: parent_permission)
     @classroom = classroom
   end
 
@@ -16,3 +16,6 @@ class Student < Person
     classroom.students.push(self) unless classroom.students.include?(self)
   end
 end
+
+# students_1 = Student.new(18, 'Juan', parent_permission: false)
+# p students_1.parent_permission
