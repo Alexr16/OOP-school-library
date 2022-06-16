@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require_relative 'app'
+
+# rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
+class Main
+  def initialize
+    @app = App.new
+  end
+
+  
+end
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/MethodLength
+
+Main.new.interface
