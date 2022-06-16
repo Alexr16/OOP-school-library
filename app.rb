@@ -15,5 +15,9 @@ class App
     puts(@books.map { |book| "Title: #{book.title}. Author: #{book.author}" })
   end
 
+  def list_all_people
+    puts(@people.map { |person| "[#{person.class}] Name: #{person.name}, ID: #{person.id},  Age: #{person.age}" })
+  end
+
   
 end
