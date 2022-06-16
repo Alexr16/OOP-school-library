@@ -20,7 +20,33 @@ class Main
     menu
   end
 
- 
+  def menu
+    selection = gets.chomp
+    case selection
+    when '1'
+      @app.list_all_books
+      interface
+    when '2'
+      @app.list_all_people
+      interface
+    when '3'
+      @app.create_person
+      interface
+    when '4'
+      @app.create_book
+      interface
+    when '5'
+      @app.create_rental
+      interface
+    when '6'
+      @app.list_all_rentals_by_id
+      interface
+    when '7' then @app.exit
+    else
+      puts 'Invalid selection'
+      interface
+    end
+  end
 end
 # rubocop:enable Metrics/CyclomaticComplexity, Metrics/MethodLength
 
