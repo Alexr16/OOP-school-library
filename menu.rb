@@ -5,7 +5,7 @@ class Menu
     @app = App.new
   end
 
-  def process_selection(selection)
+  def process_selection(selection) # rubocop:disable Metrics/CyclomaticComplexity
     case selection
     when '1'
       @app.list_all_books

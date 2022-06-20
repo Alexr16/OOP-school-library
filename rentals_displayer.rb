@@ -1,9 +1,6 @@
 require_relative 'person'
 
 class RentalsDisplayer
-  def initialize
-  end
-
   def list_all_rentals_by_id(people)
     print 'ID of person: '
     id = gets.chomp
@@ -17,5 +14,4 @@ class RentalsDisplayer
            end)
     end
   end
-
 end

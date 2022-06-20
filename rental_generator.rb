@@ -1,7 +1,4 @@
 class RentalGenerator
-  def initialize
-  end
-
   def create_rental(books, people)
     puts 'Select a book from the following list by number'
     books.each_with_index do |book, index|
