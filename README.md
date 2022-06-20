@@ -26,6 +26,11 @@ To get a local copy of the project, follow these steps:
 
 ## 🤝 Contributing
 
+👤 **Aaron Keegan**
+- GitHub: [@AKeeganDev](https://github.com/AKeeganDev)
+- Twitter: [@AkeeganDev](https://twitter.com/AkeeganDev)
+- LinkedIn: [AKeeganDev](https://linkedin.com/in/AKeeganDev)
+
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/Alexr16/OOP-school-library/issues).
