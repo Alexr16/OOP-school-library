@@ -1,4 +1,5 @@
 require_relative 'rental'
+require 'json'
 
 class Book
   attr_accessor :title, :author, :rentals
@@ -11,5 +12,9 @@ class Book
 
   def add_rental(date, person)
     Rental.new(date, self, person)
+  end
+
+  def book_to_json
+    {:title => @title, :author => @author}.to_json
   end
 end
