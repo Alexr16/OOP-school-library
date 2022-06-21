@@ -1,19 +1,14 @@
 require 'json'
 
 class Store
-    def load_data
-        file_data = File.read("./test.json")
-    end
+  def store_books(obj)
+    File.write('./Data/books.json', obj)
+  end
 
-    def store_books(obj)
-        File.write('./Data/books.json', obj, mode: "a")
-    end
-
+  def store_people(obj)
+    File.write('./Data/people.json', obj)
+  end
 end
-
-
-        
-
 
 # json = JSON.generate(obj)
 # puts 'Compact:', json
@@ -26,6 +21,5 @@ end
 # }
 # File.write("./test.json", json)
 # file = File.open("./test.json")
-
 
 # puts file_data

@@ -15,6 +15,6 @@ class Book
   end
 
   def book_to_json
-    {:title => @title, :author => @author}.to_json
+    { title: @title, author: @author }.to_json
   end
 end

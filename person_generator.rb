@@ -28,7 +28,7 @@ class PersonGenerator
     print 'Has parent permission? [y/n]: '
     parent_permission = gets.chomp.to_s == 'y'
     puts 'Person created successfully!'
-    Student.new(age, name, parent_permission: parent_permission)
+    Student.new(age, name, parent_permission: parent_permission).student_to_json
   end
 
   def create_teacher
@@ -39,6 +39,6 @@ class PersonGenerator
     print 'Specialization: '
     specialization = gets.chomp.to_s
     puts 'Person created successfully!'
-    Teacher.new(age, specialization, name, parent_permission: true)
+    Teacher.new(age, specialization, name, parent_permission: true).teacher_to_json
   end
 end

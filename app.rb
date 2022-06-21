@@ -15,22 +15,22 @@ class App
   def initialize
     @people = []
     @books = []
+    @store = Store.new
 
-    if File.exists?('./Data/books.json')
-      file = File.open('./Data/books.json')
-      file_data = file.read
-      convert_to_array = JSON.parse file_data
-      @books = convert_to_array
-      puts @books
-    end
+    load_books
+
+    load_people
   end
 
   def list_all_books
-    puts(@books.map { |book| puts "Title: #{JSON.parse(book)['title']}. Author: #{JSON.parse(book)['author']}"})
+    puts(@books.map { |book| puts "Title: #{JSON.parse(book)['title']}. Author: #{JSON.parse(book)['author']}" })
   end
 
   def list_all_people
-    puts(@people.map { |person| "[#{person.class}] Name: #{person.name}, ID: #{person.id},  Age: #{person.age}" })
+    puts(@people.map do |person|
+           puts "Name: #{JSON.parse(person)['name']}.
+           ID: #{JSON.parse(person)['id']}. Age: #{JSON.parse(person)['age']}"
+         end)
   end
 
   def create_person
@@ -54,7 +54,6 @@ class App
     # File.write('./Data/books.json', book.book_to_json, mode: "a")
     # books = JSON.parse(data)
     # puts books
-
   end
 
   def create_rental
@@ -69,7 +68,32 @@ class App
 
   def exit
     puts 'Thank for using this app!'
-    Store.new.store_books(@books.to_json)
+    @store.store_books(@books.to_json)
+    @store.store_people(@people.to_json)
     abort
+  end
+
+  private
+
+  def load_people
+    file = File.open('./Data/people.json')
+    file_data = file.read
+    if file_data == ''
+      @people = []
+    else
+      convert_to_array = JSON.parse file_data
+      @people = convert_to_array
+    end
+  end
+
+  def load_books
+    file = File.open('./Data/books.json')
+    file_data = file.read
+    if file_data == ''
+      @books = []
+    else
+      convert_to_array = JSON.parse file_data
+      @books = convert_to_array
+    end
   end
 end
