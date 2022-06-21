@@ -40,20 +40,8 @@ class App
 
   def create_book
     book_generator = BookGenerator.new
-    # @books << book_generator.create_book
     book = book_generator.create_book
     @books << book.book_to_json
-    # store = JSON.parse(@books)
-    puts @books
-
-    # json = JSON.pretty_generate(book)
-    # File.open("./Data/books.json", "w") { |f| f.puts book }
-    # File.write('./Data/books.json', book, mode: "a")
-
-    # data = File.read('./Data/books.json')
-    # File.write('./Data/books.json', book.book_to_json, mode: "a")
-    # books = JSON.parse(data)
-    # puts books
   end
 
   def create_rental
