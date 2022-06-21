@@ -6,6 +6,8 @@ require_relative 'person_generator'
 require_relative 'book_generator'
 require_relative 'rental_generator'
 require_relative 'rentals_displayer'
+require_relative 'store'
+require 'json'
 
 class App
   attr_accessor :people, :books
@@ -16,7 +18,7 @@ class App
   end
 
   def list_all_books
-    puts(@books.map { |book| "Title: #{book.title}. Author: #{book.author}" })
+    puts(@books.map { |book| puts "Title: #{JSON.parse(book)['title']}. Author: #{JSON.parse(book)['author']}"})
   end
 
   def list_all_people
@@ -30,7 +32,21 @@ class App
 
   def create_book
     book_generator = BookGenerator.new
-    @books << book_generator.create_book
+    # @books << book_generator.create_book
+    book = book_generator.create_book
+    @books << book.book_to_json
+    # store = JSON.parse(@books)
+    puts @books
+
+    # json = JSON.pretty_generate(book)
+    # File.open("./Data/books.json", "w") { |f| f.puts book }
+    # File.write('./Data/books.json', book, mode: "a")
+
+    # data = File.read('./Data/books.json')
+    # File.write('./Data/books.json', book.book_to_json, mode: "a")
+    # books = JSON.parse(data)
+    # puts books
+
   end
 
   def create_rental
@@ -45,6 +61,7 @@ class App
 
   def exit
     puts 'Thank for using this app!'
+    Store.new.store_books(@books.to_json)
     abort
   end
 end
