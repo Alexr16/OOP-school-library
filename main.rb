@@ -22,7 +22,8 @@ class Main
       selection = gets.chomp.to_s
       @menu.process_selection(selection)
     end
-    store = Store.new.store_data()
+    # store = Store.new.store_data()
   end
 end
+
 Main.new.interface

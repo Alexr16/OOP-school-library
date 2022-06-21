@@ -15,6 +15,14 @@ class App
   def initialize
     @people = []
     @books = []
+
+    if File.exists?('./Data/books.json')
+      file = File.open('./Data/books.json')
+      file_data = file.read
+      convert_to_array = JSON.parse file_data
+      @books = convert_to_array
+      puts @books
+    end
   end
 
   def list_all_books

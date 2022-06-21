@@ -1,4 +1,4 @@
-require 'JSON'
+require 'json'
 
 class Store
     def load_data
