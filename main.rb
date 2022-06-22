@@ -1,5 +1,6 @@
 require_relative 'app'
 require_relative 'menu'
+require_relative 'store'
 
 class Main
   def initialize
@@ -23,4 +24,5 @@ class Main
     end
   end
 end
+
 Main.new.interface
