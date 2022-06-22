@@ -22,7 +22,7 @@ describe Person do
       expect(@jorge.correct_name).to eq actual
     end
 
-    it "The add_rental method returns a rental and adds its to the book" do
+    it 'The add_rental method returns a rental and adds its to the book' do
       name = 'Aaron'
       age = 21
       parent_permission = false
@@ -35,21 +35,20 @@ describe Person do
       expect(aaron.rentals).to eql [rental]
     end
   end
-  
-  context "When checking permissions" do
-    
-    it "The can_use_services? method returns false if under age and no parent permission" do
-      person = Person.new(14, "Julius", parent_permission: false)
+
+  context 'When checking permissions' do
+    it 'The can_use_services? method returns false if under age and no parent permission' do
+      person = Person.new(14, 'Julius', parent_permission: false)
       expect(person.can_use_services?).to be false
     end
-    
-    it "The can_use_services? method returns true if over age" do
-      person = Person.new(19, "Mihndim", parent_permission: false)
+
+    it 'The can_use_services? method returns true if over age' do
+      person = Person.new(19, 'Mihndim', parent_permission: false)
       expect(person.can_use_services?).to be true
     end
-    
-    it "The can_use_services? method returns true if has parent permission" do
-      person = Person.new(14, "Rose", parent_permission: true)
+
+    it 'The can_use_services? method returns true if has parent permission' do
+      person = Person.new(14, 'Rose', parent_permission: true)
       expect(person.can_use_services?).to be true
     end
   end

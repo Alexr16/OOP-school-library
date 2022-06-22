@@ -21,7 +21,7 @@ describe Book do
       expect(@book.book_to_json).to eq actual
     end
 
-    it "The add_rental method returns a rental and adds its to the book" do
+    it 'The add_rental method returns a rental and adds its to the book' do
       name = 'Aaron'
       age = 21
       parent_permission = false
@@ -32,6 +32,6 @@ describe Book do
       date = '2022/12/12'
       rental = book.add_rental(date, aaron)
       expect(book.rentals).to eql [rental]
-  end
+    end
   end
 end

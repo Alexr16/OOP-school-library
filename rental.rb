@@ -6,7 +6,6 @@ class Rental
     @book = book
 
     @person = person
-    
   end
 
   def rental_to_json
