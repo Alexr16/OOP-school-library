@@ -20,5 +20,18 @@ describe Book do
       actual = { title: 'Game of Thrones', author: 'George R.R. Martin' }
       expect(@book.book_to_json).to eq actual
     end
+
+    it "The add_rental method returns a rental and adds its to the book" do
+      name = 'Aaron'
+      age = 21
+      parent_permission = false
+      aaron = Student.new(age, name, parent_permission: parent_permission)
+      title = 'Game of Thrones'
+      author = 'George R.R. Martin'
+      book = Book.new(title, author)
+      date = '2022/12/12'
+      rental = book.add_rental(date, aaron)
+      expect(book.rentals).to eql [rental]
+  end
   end
 end
