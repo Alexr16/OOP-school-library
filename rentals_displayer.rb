@@ -5,13 +5,13 @@ class RentalsDisplayer
     print 'ID of person: '
     id = gets.chomp
     puts 'Rentals: '
-    person = people.find { |element| JSON.parse(element)['id'] == id }
+    person = people.find { |element| element[:id] == id }
     if person.nil?
       puts 'No person found with this ID'
     else
       puts(rentals.map do |rental|
-             "Date: #{JSON.parse(rental)['date']},Book: #{
-              JSON.parse(rental)['book']['title']}, Author: #{JSON.parse(rental)['book']['author']}"
+             "Date: #{rental[:date]},Book: #{
+              rental[:book][:title]}, Author: #{rental[:book][:author]}"
            end)
     end
   end

@@ -17,6 +17,6 @@ class Student < Person
   end
 
   def student_to_json
-    { name: @name, age: @age, id: @id }.to_json
+    { name: @name, age: @age, id: @id, parent_permission: @parent_permission }
   end
 end

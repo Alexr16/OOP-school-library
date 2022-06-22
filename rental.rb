@@ -8,6 +8,6 @@ class Rental
   end
 
   def rental_to_json
-    { date: @date, book: @book, person: @person }.to_json
+    { date: @date, book: @book, person: @person }
   end
 end

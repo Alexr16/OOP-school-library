@@ -11,6 +11,6 @@ class Teacher < Person
   end
 
   def teacher_to_json
-    { name: @name, age: @age, id: @id, especialization: @especialization }.to_json
+    { name: @name, age: @age, id: @id, especialization: @especialization }
   end
 end

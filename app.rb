@@ -24,13 +24,13 @@ class App
   end
 
   def list_all_books
-    puts(@books.map { |book| puts "Title: #{JSON.parse(book)['title']}. Author: #{JSON.parse(book)['author']}" })
+    puts(@books.map { |book| puts "Title: #{book[:title]}. Author: #{book[:author]}" })
   end
 
   def list_all_people
     puts(@people.map do |person|
-           puts "Name: #{JSON.parse(person)['name']}.
-           ID: #{JSON.parse(person)['id']}. Age: #{JSON.parse(person)['age']}"
+           puts "Name: #{person[:name]}.
+           ID: #{person[:id]}. Age: #{person[:age]}"
          end)
   end
 
@@ -48,8 +48,7 @@ class App
   def create_rental
     rental_generator = RentalGenerator.new
     rental = rental_generator.create_rental(@books, @people)
-    @rentals << rental.rental_to_json
-    @store.store_rentals(@rentals)
+    @rentals << rental
   end
 
   def list_all_rentals_by_id()
@@ -61,7 +60,7 @@ class App
     puts 'Thank for using this app!'
     @store.store_books(@books.to_json)
     @store.store_people(@people.to_json)
-    @store.store_rentals(@rentals)
+    @store.store_rentals(@rentals.to_json)
     abort
   end
 
@@ -73,7 +72,7 @@ class App
     if file_data == ''
       @people = []
     else
-      convert_to_array = JSON.parse file_data
+      convert_to_array = JSON.parse(file_data, symbolize_names:  true)
       @people = convert_to_array
     end
   end
@@ -84,7 +83,7 @@ class App
     if file_data == ''
       @books = []
     else
-      convert_to_array = JSON.parse file_data
+      convert_to_array = JSON.parse(file_data, symbolize_names:  true)
       @books = convert_to_array
     end
   end
@@ -95,7 +94,7 @@ class App
     if file_data == ''
       @rentals = []
     else
-      convert_to_array = JSON.parse file_data
+      convert_to_array = JSON.parse(file_data, symbolize_names:  true)
       @rentals = convert_to_array
     end
   end
