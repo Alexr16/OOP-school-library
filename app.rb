@@ -72,7 +72,7 @@ class App
     if file_data == ''
       @people = []
     else
-      convert_to_array = JSON.parse(file_data, symbolize_names:  true)
+      convert_to_array = JSON.parse(file_data, symbolize_names: true)
       @people = convert_to_array
     end
   end
@@ -83,7 +83,7 @@ class App
     if file_data == ''
       @books = []
     else
-      convert_to_array = JSON.parse(file_data, symbolize_names:  true)
+      convert_to_array = JSON.parse(file_data, symbolize_names: true)
       @books = convert_to_array
     end
   end
@@ -94,7 +94,7 @@ class App
     if file_data == ''
       @rentals = []
     else
-      convert_to_array = JSON.parse(file_data, symbolize_names:  true)
+      convert_to_array = JSON.parse(file_data, symbolize_names: true)
       @rentals = convert_to_array
     end
   end
