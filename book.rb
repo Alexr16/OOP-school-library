@@ -11,7 +11,9 @@ class Book
   end
 
   def add_rental(date, person)
-    Rental.new(date, self, person).rental_to_json
+    rental = Rental.new(date, self, person).rental_to_json
+    @rentals.push(rental)
+    rental
   end
 
   def book_to_json

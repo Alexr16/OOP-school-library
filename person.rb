@@ -23,16 +23,20 @@ class Person < Nameable
   end
 
   def add_rental(date, book)
-    Rental.new(date, book, self)
+    rental = Rental.new(date, book, self)
+    @rentals.push(rental)
+    rental
+  end
+
+  def can_use_services?
+    return true if of_age? or @parent_permission
+
+    false
   end
 
   private
 
   def of_age?
     @age >= 18
-  end
-
-  def can_use_services?
-    return true if is_of_age? or @parent_permission
   end
 end
