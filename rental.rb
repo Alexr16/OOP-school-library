@@ -4,7 +4,9 @@ class Rental
   def initialize(date, book, person)
     @date = date
     @book = book
+
     @person = person
+    
   end
 
   def rental_to_json

@@ -6,6 +6,7 @@ describe Classroom do
       @label = '1A'
       @classroom = Classroom.new(@label)
     end
+
     it 'Checks to see if a variable is assigned to an instance of the Classroom class' do
       @classroom.should be_an_instance_of Classroom
     end
