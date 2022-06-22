@@ -8,18 +8,8 @@ class Store
   def store_people(obj)
     File.write('./Data/people.json', obj)
   end
+
+  def store_rentals(obj)
+    File.write('./Data/rentals.json', obj)
+  end
 end
-
-# json = JSON.generate(obj)
-# puts 'Compact:', json
-# opts = {
-#   array_nl: "\n",
-#   object_nl: "\n",
-#   indent: '  ',
-#   space_before: ' ',
-#   space: ' '
-# }
-# File.write("./test.json", json)
-# file = File.open("./test.json")
-
-# puts file_data
